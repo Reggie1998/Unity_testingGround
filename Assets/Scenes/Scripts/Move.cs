@@ -28,8 +28,7 @@ public class Move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(1))
-        {
+        if (Input.GetMouseButtonDown(1)) {
             RaycastHit hit;
 
             Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit);
@@ -40,8 +39,7 @@ public class Move : MonoBehaviour
             }
         }
 
-        if (LookAtThis)
-        {
+        if (LookAtThis) {
             Vector3 targetPostition = new Vector3(LookAtThis.transform.position.x,
                                                 this.transform.position.y,
                                                 LookAtThis.transform.position.z);
@@ -52,18 +50,15 @@ public class Move : MonoBehaviour
 
         }
 
-        if (Input.GetMouseButtonDown(0))
-        {
+        if (Input.GetMouseButtonDown(0)) {
             moveBack();
         }
 
-        if (Input.GetKeyDown(KeyCode.L))
-        {
+        if (Input.GetKeyDown(KeyCode.L)) {
             moveBack(KeyCode.L);
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
+        if (Input.GetKeyDown(KeyCode.R)) {
             moveBack(KeyCode.R);
         }
 
@@ -71,14 +66,11 @@ public class Move : MonoBehaviour
 
     void moveBack(KeyCode side = KeyCode.None)
     {
-        if (KeyCode.R == side)
-        {
+        if (KeyCode.R == side) {
             pos = gameObject.transform.position - gameObject.transform.right * Random.Range(3.5f, 6f);
             agent.destination = pos;
             return;
-        }
-        else if (KeyCode.L == side)
-        {
+        } else if (KeyCode.L == side) {
             pos = gameObject.transform.position - (-gameObject.transform.right) * Random.Range(3.5f, 6f);
             agent.destination = pos;
             return;
